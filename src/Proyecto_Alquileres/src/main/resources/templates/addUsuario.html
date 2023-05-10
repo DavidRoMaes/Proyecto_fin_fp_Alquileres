@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/parts::head(title='Registrarse')"></head>
+<body>
+	<header th:replace="fragments/parts::header"></header>	
+	<section th:replace="fragments/parts::portada"></section>	
+	<div class="contenido">
+		<aside th:replace="fragments/parts::aside"></aside>	
+		<main>
+			<form action="#" th:action="@{/usuario-add}" th:object="${usuario}" method="post" class="formulario bloque">
+				<h2 class="resaltado">Registrate como Usuario</h2>
+				<div class="grupoForm">
+					<label for="nombre" >Nombre</label> 
+					<input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+					<p class="resaltado" th:each="e : ${errores.get('nombre')}" th:text="${e}"></p>
+				</div>
+				<div class="grupoForm">	
+					<label for="telefono" >Telefono</label>
+					<input type="text"  id="telefono" name="telefono" th:field="*{telefono}" required>
+					<p class="resaltado" th:each="e : ${errores.get('telefono')}" th:text="${e}"></p>
+				</div>
+				<div class="grupoForm">
+					<label for="email" >Email</label>
+					<input type="email"  id="email" name="email" th:field="*{email}" required>
+					<p class="resaltado" th:each="e : ${errores.get('email')}" th:text="${e}"></p>
+				</div>
+				<div class="grupoForm">
+					<label for="dni" >DNI</label>
+					<input type="text"  id="dni" name="dni" th:field="*{dni}" required pattern="[0-9]{8}[A-Z]{1}">
+					<p class="resaltado" th:each="e : ${errores.get('dni')}" th:text="${e}"></p>
+				</div>
+				<div class="grupoForm">
+					<label for="password" >Contraseña</label>
+					<input type="password"  id="password" name="password" th:field="*{password}" required>
+					<p class="resaltado" th:each="e : ${errores.get('password')}" th:text="${e}"></p>
+				</div>
+				<input type="submit" class="boton" value="Enviar" />
+			</form>
+		</main>   	
+	</div>	
+	<footer th:replace="fragments/parts::footer"></footer>
+</body>
+</html>

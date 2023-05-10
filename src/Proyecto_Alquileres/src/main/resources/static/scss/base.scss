@@ -1,0 +1,268 @@
+@import "../bootstrap/scss/bootstrap";
+@import "variables_mixins.scss";
+@import "funciones_directivas.scss";
+
+/* Animacion de iluminazion */
+@keyframes ilimina_animado {
+    0% {
+        box-shadow: 0 0px 0.6rem 0 $iluminar, 0 0px 0.6rem 0 $iluminar;
+    }
+
+    34% {
+        box-shadow: 0 0px 0.9rem 0 $iluminar, 0 0px 0.9rem 0 $iluminar;
+    }
+
+    68% {
+        box-shadow: 0 0px 1.2rem 0 $iluminar, 0 0px 1.2rem 0 $iluminar;
+    }
+
+    100% {
+        box-shadow: 0 0px 0.9rem 0 $iluminar, 0 0px 0.9rem 0 $iluminar;
+    }
+}
+
+* {
+    box-sizing: border-box !important;
+    font-family: 'Lucida Sans' !important;
+}
+
+/* Cambios en el scroll */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background: $negro;
+    border-radius: 1.2rem;
+    -webkit-border-radius: 1.2rem;
+    -moz-border-radius: 1.2rem;
+    -ms-border-radius: 1.2rem;
+    -o-border-radius: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $resaltado_btn;
+    border-radius: 1.2rem;
+    -webkit-border-radius: 1.2rem;
+    -moz-border-radius: 1.2rem;
+    -ms-border-radius: 1.2rem;
+    -o-border-radius: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $iluminar_scroll;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.enlace:hover {
+    text-shadow: 0 0 0.5rem $iluminar;
+    text-decoration: underline;
+}
+
+body {
+    background-color: $fondo;
+}
+
+header {
+    @include tema;
+    @include alinear_separado;
+    font-family: $fuente_portada !important;
+
+    a:hover {
+        color: $iluminar !important;
+    }
+    
+    img.logotipo {
+        width: 16rem;
+        height: 6.5rem;
+        margin-left: 0.4rem;
+    }
+
+    nav {
+        @include alinear_separado;
+        padding: 0px !important;
+
+        div.logotipo {
+            display: flex;
+            justify-content: flex-start !important;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 0.7rem;
+        }
+
+        div.modal-content {
+            @include tema;
+
+            div.titulo {
+                @include alinear_centrado;
+                padding: 2.5rem;
+
+                h2.resaltado {
+                    padding-bottom: 1rem;
+                    font-size: 2.5rem !important;
+                }
+            }
+
+            div.cuerpo {
+                @include alinear_centrado;
+            }
+
+            .boton {
+                width: 15%;
+            }           
+        }
+    }
+}
+
+section.portada {
+    position: relative;
+
+    img {
+        width: $todo;
+    }
+
+    img.normal {
+        display: none;
+    }
+
+    h1 {
+        font-family: $fuente_portada !important;
+        position: absolute;
+        color: $resaltado;
+        font-weight: bold;
+        display: none;
+    }
+}
+
+div.contenido {
+    @include alinear;
+    width: $todo;
+    padding: 1rem;
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        width: $todo;      
+    }
+
+    aside {
+        display: none;
+
+        article {
+            padding: 1.1rem;
+
+            h2 {
+                border-bottom: 0.25rem solid $resaltado;
+                padding-bottom: 0.3rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    article.info {
+        :nth-child(1) {
+            margin-bottom: 1.5rem;
+        }
+
+        :nth-last-child(1) {
+            margin-bottom: 0.9rem;
+        }
+
+    } 
+
+    .bloque {
+        @include tema;
+        box-shadow: 0 0.6rem 0.6rem 0 $negro, 0 0.6rem 0.6rem 0 $negro;
+        border-radius: 0.8rem;
+        -webkit-border-radius: 0.8rem;
+        -moz-border-radius: 0.8rem;
+        -ms-border-radius: 0.8rem;
+        -o-border-radius: 0.8rem;
+        margin-top: 2.5rem;
+    }
+
+    .bloque:hover {
+        animation: ilimina_animado 3s infinite;
+        -webkit-animation: ilimina_animado 3s infinite;
+    }
+
+}
+
+footer {
+    @include alinear_separado;
+    @include tema;
+    margin-top: 2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
+    article {
+        margin: 1.5rem;
+        
+        a:hover {
+            color: $iluminar !important;
+        }
+    }
+}
+
+@media screen and (min-width: $mediano) {
+    nav h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    section.portada {
+        img.normal {
+            display: block;
+        }
+
+        img.reducida {
+            display: none;
+        }
+
+        h1 {
+            display: block;
+            left: 2.5rem;
+            top: 2rem;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media screen and (min-width: $grande) {
+    section.portada h1 {
+        left: 3.5rem;
+        top: 5.5rem;
+        font-size: 2rem;
+    }
+
+    div.contenido {
+        aside {
+            display: block;
+            width: 25%;
+        }
+
+        main {
+            width: 65%;
+        }
+    }
+}

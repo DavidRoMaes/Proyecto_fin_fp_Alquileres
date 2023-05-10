@@ -1,0 +1,61 @@
+$azul: #155263;
+
+$blanco: #FFFFFF;
+
+$resaltado: #ff9a3c;
+
+$resaltado_btn:#ff6f3c;
+
+$fondo: #F5F5F5;
+
+$negro: rgba(0, 0, 0, 0.2);
+
+$iluminar:#ffc93c;
+
+$iluminar_scroll: #ff9a3c;
+
+$iluminar_input:#fcd165;
+
+$azul_tabla_hover: #114352;
+
+$todo: 100%;
+
+$mediano: 576px;
+
+$grande: 992px;
+
+$fuente_portada: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+@mixin tema {
+    background-color: $azul !important;
+    color: $blanco !important;
+
+    a {
+        color: $blanco !important;
+    }
+
+    .resaltado {
+        color: $resaltado !important;
+    }
+}
+
+@mixin alinear {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;    
+}
+
+@mixin alinear_separado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+@mixin alinear_centrado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;   
+}

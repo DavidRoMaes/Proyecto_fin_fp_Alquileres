@@ -1,0 +1,230 @@
+@import "base.scss";
+
+div.configura {
+    @include alinear_centrado;
+    margin: 2.5rem auto;
+    width: 95%;
+    padding: 1.1rem;
+
+    h1 {
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+}
+
+div.busquedas {
+    @include alinear_centrado;
+    margin-top: 0.6rem;
+
+    div.caja {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0.5rem;
+        
+        img {
+            width: 8.5rem; 
+            height: 5.7rem;
+            border-radius: 0.4rem;
+            margin: 1rem;
+        }
+    }
+}
+
+@keyframes ilimina_input {
+    0% {
+        box-shadow: 0 0px 0.08rem 0 $iluminar_input, 0 0px 0.08rem 0 $iluminar_input;
+    }
+
+    34% {
+        box-shadow: 0 0px 0.35rem 0 $iluminar_input, 0 0px 0.35rem 0 $iluminar_input;
+    }
+
+    68% {
+        box-shadow: 0 0px 0.5rem 0 $iluminar, 0 0px 0.5rem 0 $iluminar_input;
+    }
+
+    100% {
+        box-shadow: 0 0px 0.3rem 0 $iluminar_input, 0 0px 0.3rem 0 $iluminar_input;
+    }
+}
+
+form.formulario {
+    @include alinear_centrado;
+    width: 95%;
+    padding: 1.1rem;
+    margin: 2.5rem auto;
+
+    div.grupoForm {
+        width: 95%;
+        margin-bottom: 2.5rem;
+        @include alinear_separado;
+
+        input, textarea, select, option, label {
+            margin-bottom: 0px !important;
+        }
+    }
+
+    label {
+        width: 40%;
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;   
+    }
+
+    input, textarea, select, option {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+
+    input[type = text], input[type = email], input[type = password], input[type = number], 
+    select, option, textarea, input[type = date] {
+        width: 55%;      
+        border-radius: 0.2rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+    }
+
+    input[type = submit] {
+        width: 35%;
+        font-size: 1.8rem;
+    }
+
+    input:focus, textarea:focus, select:focus{
+        outline: none !important;
+        border-color: $iluminar_input;
+        animation: ilimina_input 3s infinite;
+        -webkit-animation: ilimina_input 3s infinite;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    h2 {
+        width: 100%;
+        font-size: 2.5rem;
+        margin-top: 1rem;
+        margin-bottom: 3.5rem;
+        text-align: center;
+    }
+
+    p {
+        width: 100%;
+        margin-top: 0.45rem;
+    }
+}
+
+.boton {
+    background-color: $resaltado_btn;
+    border-color: $blanco;
+    color: $blanco;
+    margin: 2rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.boton:hover {
+    background-color: $iluminar_scroll;
+}
+
+h2.estadistica {
+    margin: 20px;
+    font-size: 1.5rem;
+}
+
+div.estadistica {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+}
+
+div.chart_wrap {
+    position: relative;
+    padding: 30%;
+    width: 400px; 
+    height: 400px;
+    overflow:hidden;
+}
+
+div.tabla {
+    width: $todo;
+    padding: 1.1rem;
+    overflow-x:auto;
+}
+
+table.tabla {
+    border-collapse: collapse;
+    width: $todo;
+    text-align: center !important;
+    vertical-align: middle !important;
+
+    thead th {
+        border-bottom: 0.2rem solid $resaltado;
+        font-size: 1.2rem;
+    }
+
+    tbody td {
+        color: $blanco;
+        font-size: 0.9rem;
+
+        a:hover {
+            color: $iluminar !important;
+        }
+    }
+
+    tbody tr:hover {
+        background-color: $azul_tabla_hover;
+    }
+}
+
+@media screen and (min-width: $mediano) {
+    div.datos {
+        h2 {
+            font-size: 2.3rem !important;
+        }
+
+        h3 {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    div.configura, form.formulario {
+        width: 90%;
+    }
+
+    div.configura h1 {
+        font-size: 2.5rem;
+    }
+
+    h2.estadistica {
+        font-size: 2.3rem;
+    }
+
+    form.formulario input[type = submit] {
+        width: 30%;
+    }
+
+    .boton {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: $grande) {
+    div.configura, form.formulario {
+        width: 85%;
+    }
+
+    div.busquedas {
+        flex-wrap: nowrap !important;
+    }
+}

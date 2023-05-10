@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/parts::head(title='Editar Usuario')"></head>
+<body>
+	<header th:replace="fragments/parts::header"></header>
+	<section th:replace="fragments/parts::portada"></section>
+	<div class="contenido">
+		<aside th:replace="fragments/parts::aside"></aside>
+		<main>
+			<form action="#" th:action="@{/usuario-edit}" th:object="${usuario}" method="post" class="formulario bloque">
+				<h2 class="resaltado">Edita tus datos</h2>
+				<div class="grupoForm">
+					<label for="email" >Email</label>
+					<input type="email"  id="email" name="email" th:field="*{email}" required>
+					<p class="resaltado" th:if="${errores.get('email') != null}" th:text="${errores.get('email')}"></p>
+				</div>
+				<div class="grupoForm">
+					<label for="telefono">Telefono</label>
+					<input type="text" id="telefono" name="telefono" th:field="*{telefono}" required>
+					<p class="resaltado" th:if="${errores.get('telefono') != null}" th:text="${errores.get('telefono')}"></p>
+				</div>
+				<input type="submit" class="boton" value="ENVIAR" />
+			</form>
+			<form action="#" th:action="@{/usuario-edit-password}" th:object="${passwordDTO}" method="post" class="formulario bloque">
+				<h2 class="resaltado">Cambia tu contraseña</h2>
+				<div class="grupoForm">
+					<label for="password">Contraseña nueva</label>
+					<input type="password" id="password" name="password" th:field="*{password_nueva}" required>
+					<p class="resaltado" th:each="e : ${errores.get('password_nueva')}" th:text="${e}"></p>
+				</div>
+				<div class="grupoForm">
+					<label for="password">Repite la contraseña</label>
+					<input type="password" id="password" name="password" th:field="*{password_repetida}" required>
+					<p class="resaltado" th:each="e : ${errores.get('password_repetida')}" th:text="${e}"></p>
+				</div>
+				<input type="submit" class="boton" value="ENVIAR" />
+			</form>
+		</main>
+	</div>
+	<footer th:replace="fragments/parts::footer"></footer>
+</body>
+</html>
